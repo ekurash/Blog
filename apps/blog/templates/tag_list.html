@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<h1>Tags</h1>
+<a href='{% url "blog:tag-create" %}'>add tag</a>
+
+<div>
+    {% for tag in object_list %}
+    <div class='tag'>
+        <div class='tag-value'>
+            {{ tag.value }}
+        </div>
+            <div class='tag-options'>
+                <a href='{% url "blog:tag-edit" pk=tag.id %}'>edit</a>
+                <a href='{% url "blog:tag-detail" pk=tag.id %}'>detail</a>
+                <a href='{% url "blog:tag-delete" pk=tag.id %}'>delete</a>
+            </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

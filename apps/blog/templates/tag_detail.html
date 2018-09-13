@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class='tag'>
+
+    <div class='tag-value'>
+        <div class='tag-options'>
+            (<a href='{% url "blog:tag-edit" pk=tag.id %}'>edit</a>
+            <a href='{% url "blog:tag-delete" pk=tag.id %}'>delete</a>)
+        </div>
+        {{ tag.value }}
+    </div>
+
+    <div>
+        <a href='{% url "blog:tag-index" %}'>back to blog</a>
+    </div>
+</div>
+
+{% endblock content %}

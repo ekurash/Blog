@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<h1>Add Post</h1>
+
+<form action="{{ action }}" method="POST">
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input id="save_post" type="submit" value="Save"/>
+</form>
+
+<a href="{% url 'blog:index' %}">back to list</a>
+
+{% endblock content %}
