@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog_style.css' %}">
+    <link rel="icon" href="{% static 'img/twitter.png' %}" type="images/png">
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <a id="my_blog" href="{% url 'blog:index' %}"> <h1>My BloG</h1> </a>
+            <h3>о первом блоге</h3>
+            <a href="/blog" class="btn btn-success btn-lg">Page Posts</a>
+            <a href="/blog/tags" class="btn btn-primary btn-lg">Page Tags</a>
+            <a href="/blog/contact" class="btn btn-info btn-lg">Contacts</a>
+        </div>
+    </div>
+{#  <div class="container">#}
+{#    <img src="{% static 'img/python2.jpg' %}" class="img-thumbnail">#}
+{#  </div>#}
+</body>
+</html>
+{% block content %}
+{% endblock %}
+<hr>
+Copyright © 2018 E. Kurash Inc. All rights reserved.

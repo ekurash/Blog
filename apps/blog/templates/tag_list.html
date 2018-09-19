@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block content %}
+    <title>Tags</title>
+    <div class='row'>
+        <div class='col-md-offset-3 col-md-5'>
+            <form method='GET' action=''>
+                <input type="text" name="q" class="form-control input-lg"
+                       style='text-align: center; background-color: #d2d2d2'
+                       placeholder="search" value="{{ request.GET.q }}">
+            </form>
+        </div>
+    </div>
+   <div class='col-md-offset-0,8 col-md-3'>
+    <h1>Tags</h1>
+    <span class="btn btn-default">
+    <a style='font-weight: 800; color: #c66b1a' href='{% url "blog:tag-create" %}'>Add Tag</a>
+    </span>
+    <div style='color: #a4a4a4'>
+        {% for tag in object_list %}
+            <div class='tag'>
+                <div class='tag-value'>
+                    {{ tag.value }}
+                    <div class='tag-options'>
+                    <a href='{% url "blog:tag-edit" pk=tag.id %}'>edit</a>
+                    <a href='{% url "blog:tag-detail" pk=tag.id %}'>detail</a>
+                    <a href='{% url "blog:tag-delete" pk=tag.id %}'>delete</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+    </div>

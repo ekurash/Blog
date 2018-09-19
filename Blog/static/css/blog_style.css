@@ -1,0 +1,20 @@
+/*a {*/
+    /*color: #0f0f0f;*/
+/*}*/
+body {
+    /*background-image: url('../img/blog.jpg');*/
+    background-color: #0f0f0f;
+}
+
+a:hover:first-line {
+    color: #faff23
+}
+
+#my_blog {
+    color: #0f0f0f;
+}
+
+.jumbotron {
+    color: #666666;
+    box-shadow: 33px 33px 50px #609ab6;
+}

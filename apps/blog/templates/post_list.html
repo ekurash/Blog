@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% block content %}
+    <title>Posts</title>
+    <div class='row'>
+        <div class='col-md-offset-3 col-md-5'>
+            <form method='GET' action=''>
+                <input type="text" name="q" class="form-control input-lg"
+                       style='text-align: center; background-color: #d2d2d2'
+                            placeholder="search" value="{{ request.GET.q }}">
+            </form>
+        </div>
+    </div>
+    <div class='col-md-offset-0 col-md-5'>
+    <h1>Posts</h1>
+    <span class="btn btn-default">
+        <a style='font-weight: 800; color: #c66b1a' href='{% url "blog:post-create" %}'>New Post</a>
+        </span>
+    <div>
+        {% for post in posts %}
+            <div style='color: #40c61c' class='post'>
+                <div class='post-title'>
+                    {{ post.title }}
+                </div>
+                <div style='color: #a4a4a4' class='post-content'>
+                    {{ post.content }}
+                    <div class='post-options'>
+                        {{ post.created }} : {{ post.is_draft }}
+                        <div class="btn-group" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default-inverse">
+                                <a href='{% url "blog:post-detail" pk=post.id %}'>detail</a>
+                            </button>
+                            <button type="button" class="btn btn-default-inverse">
+                                <a href='{% url "blog:post-edit" pk=post.id %}'>edit</a>
+                            </button>
+                            <button type="button" class="btn btn-default-inverse">
+                                <a href='{% url "blog:post-delete" pk=post.id %}'>delete</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+</div>

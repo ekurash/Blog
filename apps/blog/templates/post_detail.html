@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% block content %}
+<title>Detail Posts\</title>
+    <div class='col-md-offset-0,8 col-md-3'>
+    <div style='color: #c6c6c6' class='post'>
+        <div class='post-title'>
+            {{ post.title }}
+        </div>
+        <div class='post-content'>
+            <div class='post-options'>
+                {{ post.created }} : {{ post.is_draft }}
+                (<a href='{% url "blog:post-edit" pk=post.id %}'>edit</a>
+                <a href='{% url "blog:post-delete" pk=post.id %}'>delete</a>)
+            </div>
+            {{ post.content }}
+        </div>
+    </div>
+    <div>
+        <a href='{% url "blog:index" %}'>back to posts</a>
+    </div>
+
+{% endblock content %}
+    </div>
